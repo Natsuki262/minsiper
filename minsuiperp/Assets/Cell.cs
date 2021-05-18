@@ -3,14 +3,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
-
 {
+    
     // Start is called before the first frame update
     [SerializeField]
     private Text _view = null;
 
     [SerializeField]
     private Cellstate _cellState = Cellstate.None;
+    public Cellstate Cellstate
+    {
+        get => _cellState;
+        set
+        {
+            _cellState = value;
+            OneCellStateChanged();
+        }
+    }
 
     private void Start()
     {
